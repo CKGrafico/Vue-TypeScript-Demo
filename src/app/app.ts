@@ -17,7 +17,6 @@ export class AppModule {
     }
 
     private async bootstrap(): Promise<Vue> {
-
         let options = {
             el: '.main',
             router: router(),

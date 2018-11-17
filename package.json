@@ -10,7 +10,7 @@
     "dev": "gulp --env=development",
     "postdev": "webpack --env.NODE_ENV=development",
     "start": "npm run dev",
-    "poststart": "concurrently \"gulp watcher --env=development\" \"webpack-dev-server --env.NODE_ENV=development\" --names \"🥛,📦\" --prefix name --kill-others",
+    "poststart": "concurrently \"gulp watcher --env=development\" \"webpack-dev-server --env.NODE_ENV=development --hot --open\" --names \"🥛,📦\" --prefix name --kill-others",
     "test:unit": "karma start test/unit/karma.conf.js --single-run",
     "test:e2e": "node test/e2e/runner.js",
     "test": "npm run test:unit && npm run test:e2e",
@@ -105,7 +105,7 @@
     "vue-template-compiler": "^2.5.17",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.10"
   },
   "repository": "https://github.com/CKGrafico/Frontend-Boilerplates#frontend-boilerplates",
   "author": "https://github.com/CKGrafico/Frontend-Boilerplates#-contributors"

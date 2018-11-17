@@ -1,21 +1,15 @@
 <template>
-  <section class="demo">
-    <Author />
+  <section class="author container-medium">
+    Autor 
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Author from './Author.vue';
-
-@Component({
-  components: {
-    Author
-  }
-})
+@Component
 export default class extends Vue {
-  public name = 'Demo';
+  public name = 'Author';
 }
 </script>
 

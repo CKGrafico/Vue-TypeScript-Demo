@@ -23,7 +23,7 @@ module.exports = (env, envs) => {
         };
 
         return [
-            pluginBuilder[env],
+            // pluginBuilder[env],
             pluginLoader[env]
         ];
     }
