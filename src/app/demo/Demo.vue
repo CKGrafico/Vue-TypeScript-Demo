@@ -1,6 +1,6 @@
 <template>
   <section class="demo">
-    <Author />
+    <Author :author="author" />
   </section>
 </template>
 
@@ -16,15 +16,20 @@ import Author from './Author.vue';
 })
 export default class extends Vue {
   public name = 'Demo';
+  public author = {
+    roles: ['premium']
+  };
 }
 </script>
 
 <style lang="scss" scoped>
 @import '~styles/variables';
 
-.weather {
-  &-header {
-    color: $color-primary;
-  }
+.demo {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 }
 </style>
