@@ -9,7 +9,7 @@ class EmojisService {
         const emoji = this.values[key];
 
         if (!emoji) {
-            throw new Error('Emoji not found.')
+            throw new Error('Emoji not found.');
         }
 
         return emoji;

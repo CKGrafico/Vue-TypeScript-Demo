@@ -112,7 +112,7 @@ export default Vue.extend({
       }
 
       badge.value = emojisService.get(emoji);
-      badge.title = `Registered on year of ${emoji}.`;
+      badge.title = `Registered in the year of ${emoji}.`;
       
       this.badges.push(badge);
     },

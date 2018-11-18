@@ -1,5 +1,5 @@
 <template>
-  <div class="badge" v-if="info" :style="{'background-color': info.color}" :class="{'is-not_icon': info.isNotIcon}" :title="info.title">
+  <div class="badge" v-if="info" :style="{'background-color': info.color}" :class="{'is-not_icon': info.isNotIcon}" v-tooltip="info.title">
       {{info.value}}
   </div>
 </template>
@@ -14,9 +14,6 @@ export default Vue.extend({
       type: Object,
       required: true
     }
-  },
-  created() {
-      console.log(this.info);
   }
 });
 </script>
