@@ -10,6 +10,7 @@ $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
 $color-secondary-bright: lighten($color-secondary, 10%);
 $color-secondary-brighter: #FFDD2E;
+$color-secondary-brightest: lighten($color-secondary, 38%);;
 
 $color-background-dark: #111111;
 $color-background-darker: #000000;
@@ -18,8 +19,10 @@ $color-background-brighter: #FFFFFF;
 
 $color-foreground-dark: #333333;
 $color-foreground-darker: #000000;
-$color-foreground-bright: #969DA6;
+$color-foreground-bright: #6D6D6D;
 $color-foreground-brighter: #FFFFFF;
+
+$color-premium: #AF9B61;
 
 // Animations
 $animation-speed-fast: .15s;
@@ -34,7 +37,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 800;
 
-$font-size-xs: .5rem;    // 8px
+$font-size-xs: .7rem;    // 8px
 $font-size-s: .85rem;    // 13.6px
 $font-size-m: 1rem;      // [16px]
 $font-size-l: 1.25rem;   // 20px

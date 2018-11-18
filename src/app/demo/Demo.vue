@@ -17,7 +17,17 @@ import Author from './Author.vue';
 export default class extends Vue {
   public name = 'Demo';
   public author = {
-    roles: ['premium']
+    roles: ['premium'],
+    name: 'Quique',
+    location: 'Barcelona, Spain',
+    company: 'Plain Concepts',
+    registerYear: 2017,
+    followers: 1,
+    info: {
+      articles: 10,
+      likes: 12,
+      comments: 17
+    }
   };
 }
 </script>
