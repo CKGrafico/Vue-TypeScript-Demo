@@ -1,5 +1,5 @@
 export default interface BadgeInfo {
-    value: string,
+    value: string;
     color: string;
     title: string;
     isNotIcon?: boolean;

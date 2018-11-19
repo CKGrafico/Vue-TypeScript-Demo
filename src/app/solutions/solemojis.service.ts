@@ -1,5 +1,9 @@
+import { ISolEmojisService } from './soliemojis.service';
+import { injectable } from 'inversify';
+
 // Super simple service to show how inject works
-class EmojisService {
+@injectable()
+export class SolEmojisService implements ISolEmojisService {
     private values = {
         'monkey': '🐵',
         'chicken': '🐔'
@@ -16,4 +20,4 @@ class EmojisService {
     }
 }
 
-export default new EmojisService();
+export default new SolEmojisService();

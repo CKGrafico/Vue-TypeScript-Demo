@@ -1,7 +1,7 @@
 <template>
   <section class="author">
     <header class="author-header" 
-      :class="{'is-premium': author.roles.find(x => x === 'premium')}"></header>
+      :class="{'is-premium': isAuthorPremium()}"></header>
     <div class="author-content">
       <div class="author-picture"></div>
       <h1 class="author-name">{{author.name}}</h1>
@@ -43,9 +43,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Badge from './Badge.vue';
-import BadgeInfo from './badge-info.model';
-import emojisService from './emojis.service';
+import Badge from '~/demo/Badge.vue';
+import emojisService from './solemojis.service';
+import badgesService from './solbadges.service';
 
 export default Vue.extend({
   components: {
@@ -64,58 +64,16 @@ export default Vue.extend({
     this.generateBadges();
   },
   methods: {
+    isAuthorPremium(): boolean {
+      return this.author.roles.find(x => x === 'premium');
+    },
     generateBadges() {
       this.badges = [
-        this.generateYearBadge(this.author.registerYear),
-        this.generateNameBadge(this.author.name),
-        this.generateFollowersBadge(this.author.followers)
+        badgesService.generateYearBadge(this.author.registerYear),
+        badgesService.generateNameBadge(this.author.name),
+        badgesService.generateFollowersBadge(this.author.followers)
       ];
     },
-    generateYearBadge(year: number): BadgeInfo {
-      let emoji: string = null;
-
-      switch (year) {
-        case 2016:
-          emoji = 'monkey';
-          break;
-        case 2017:
-          emoji = 'chicken';
-          break;
-        default:
-          emoji = null;
-      }
-
-      if (!emoji) {
-        return;
-      }
-
-      return {
-        value: emojisService.get(emoji),
-        title: `Registered in the year of ${emoji}.`,
-        color: '#C05775'
-      };
-    },
-    generateNameBadge(name: string): BadgeInfo {
-      const letter = name.slice(0, 1);
-
-      return {
-        value: letter, 
-        color: '#F68381',
-        title: `Welcome to ${letter}'s club.`,
-        isNotIcon: true
-      };
-    },
-    generateFollowersBadge(followers: number): BadgeInfo {
-      if (followers < 1) {
-        return;
-      }
-
-      return {
-        value: '😲', 
-        color: '#355C7D',
-        title: 'There are people following you!'
-      };
-    }
   }
 });
 </script>

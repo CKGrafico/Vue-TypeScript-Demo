@@ -1,6 +1,8 @@
 import { Container } from 'inversify';
 import { injectId } from '~/core';
+import { IEmojisService } from './iemojis.service';
+//import { EmojisService } from './emojis.service';
 
 export default (container: Container) => {
-    // container.bind<IWeatherService>(injectId(WeatherService)).to(WeatherService).inSingletonScope();
+    //container.bind<IEmojisService>(injectId(EmojisService)).to(EmojisService).inSingletonScope();
 };
