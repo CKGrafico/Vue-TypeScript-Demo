@@ -2,7 +2,7 @@
 class EmojisService {
     private values = {
         'monkey': '🐵',
-        'chicken': '🐔'
+        'rooster': '🐔'
     };
 
     public get(key: string): string {

@@ -6,7 +6,7 @@ import { injectable } from 'inversify';
 export class SolEmojisService implements ISolEmojisService {
     private values = {
         'monkey': '🐵',
-        'chicken': '🐔'
+        'rooster': '🐔'
     };
 
     public get(key: string): string {

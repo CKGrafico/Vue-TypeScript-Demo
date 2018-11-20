@@ -13,7 +13,7 @@ class SolBadgesService {
                 emoji = 'monkey';
                 break;
             case 2017:
-                emoji = 'chicken';
+                emoji = 'rooster';
                 break;
             default:
                 emoji = null;

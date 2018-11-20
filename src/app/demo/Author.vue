@@ -79,7 +79,7 @@ export default Vue.extend({
           emoji = 'monkey';
           break;
         case 2017:
-          emoji = 'chicken';
+          emoji = 'rooster';
           break;
         default:
           emoji = null;
@@ -167,7 +167,6 @@ export default Vue.extend({
 
       background-image: url('/assets/images/premium.svg');
       background-size: cover;
-      box-shadow: 1px 1px 1px rgba($color-background-brighter, .5);
       content: '';
       height: $size;
       padding: .15rem .25rem;
