@@ -27,7 +27,7 @@ module.exports = env => {
             rules: [
                 ...rules.components,
                 rules.scripts,
-                rules.lint
+                // rules.lint no linting for demo :P
             ]
         },
         plugins: [

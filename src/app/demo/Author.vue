@@ -64,7 +64,7 @@ export default Vue.extend({
     this.generateBadges();
   },
   methods: {
-    generateBadges() {
+    generateBadges(): void {
       this.badges = [
         this.generateYearBadge(this.author.registerYear),
         this.generateNameBadge(this.author.name),
