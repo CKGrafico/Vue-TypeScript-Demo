@@ -1,4 +1,5 @@
 // Super simple service to show how inject works
+// @injectable()
 class EmojisService {
     private values = {
         'monkey': '🐵',
