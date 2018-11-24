@@ -5,3 +5,6 @@
 [Spanish Video](https://www.youtube.com/watch?v=yYsIuexaIU4)
 
 English Video (To do)
+
+# License
+This example is based on http://boilerplates.js.org under the same license, MIT
