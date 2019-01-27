@@ -1,6 +1,6 @@
 import { Inject } from '~/core';
 import { ISolEmojisService } from './soliemojis.service';
-import BadgeInfo from '~/demo/badge-info.model';
+import { BadgeInfo } from '~/demo/badges/badge-info.model';
 import calculateChineeseYear from '~/helpers/calculate-chineese-year';
 import superComplexHelper from '~/helpers/super-complex-helper';
 
@@ -19,7 +19,7 @@ class SolBadgesStrategyService {
         execute() {
             return 'monkey';
         }
-    }
+    };
 
     private roosterStrategy: IBadgesYearStrategy = {
         check(year: number) {
@@ -28,7 +28,7 @@ class SolBadgesStrategyService {
         execute() {
             return superComplexHelper(10);
         }
-    }
+    };
 
     public generateYearBadge(year: number): BadgeInfo {
         const strategies = [

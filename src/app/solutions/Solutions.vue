@@ -39,7 +39,7 @@ export default class extends Vue {
   align-content: center;
   align-items: center;
   display: flex;
-  justify-content: center;
   height: 100vh;
+  justify-content: center;
 }
 </style>

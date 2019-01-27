@@ -35,7 +35,7 @@
       </section>
 
       <section class="author-badges">
-        <Badge v-for="(badge, index) in badges" :key="index" :info="badge" v-if="badge"/>
+        <Badge v-for="(badge, index) in badges" :key="index" :info="badge"/>
       </section>
     </div>
   </section>
@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Badge from '~/demo/Badge.vue';
+import Badge from '~/demo/badges/Badge.vue';
 import emojisService from './solemojis.service';
 import badgesService from './solbadges.service';
 
@@ -72,7 +72,7 @@ export default Vue.extend({
         badgesService.generateYearBadge(this.author.registerYear),
         badgesService.generateNameBadge(this.author.name),
         badgesService.generateFollowersBadge(this.author.followers)
-      ];
+      ].filter(x => x);
     },
   }
 });
@@ -194,8 +194,8 @@ export default Vue.extend({
 
   &-value {
     color: $color-foreground-dark;
-    letter-spacing: -.25rem;
     font-size: $font-size-xl;
+    letter-spacing: -.25rem;
     text-align: center;
     text-transform: uppercase;
   }

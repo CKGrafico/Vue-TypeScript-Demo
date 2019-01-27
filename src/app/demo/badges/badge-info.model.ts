@@ -1,4 +1,4 @@
-export default interface BadgeInfo {
+export interface BadgeInfo {
     value: string;
     color: string;
     title: string;

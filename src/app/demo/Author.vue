@@ -35,7 +35,7 @@
       </section>
 
       <section class="author-badges">
-        <Badge v-for="(badge, index) in badges" :key="index" :info="badge" v-if="badge"/>
+        <Badge v-for="(badge, index) in badges" :key="index" :info="badge" />
       </section>
     </div>
   </section>
@@ -43,9 +43,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Badge from './Badge.vue';
-import BadgeInfo from './badge-info.model';
-import emojisService from './emojis.service';
+import { Badge, BadgeInfo } from './badges';
+import { emojisService } from './emojis';
+import { YearsSign } from './years';
 
 export default Vue.extend({
   components: {
@@ -69,17 +69,32 @@ export default Vue.extend({
         this.generateYearBadge(this.author.registerYear),
         this.generateNameBadge(this.author.name),
         this.generateFollowersBadge(this.author.followers)
-      ];
+      ].filter(x => x);
     },
     generateYearBadge(year: number): BadgeInfo {
       let emoji: string = null;
 
       switch (year) {
         case 2016:
-          emoji = 'monkey';
+          emoji = YearsSign.Monkey;
           break;
         case 2017:
-          emoji = 'rooster';
+          emoji = YearsSign.Rooster;
+          break;
+        case 2018:
+          emoji = YearsSign.Dog;
+          break;
+        case 2019:
+          emoji = YearsSign.Pig;
+          break;
+        case 2020:
+          emoji = YearsSign.Rat;
+          break;
+        case 2021:
+          emoji = YearsSign.Ox;
+          break;
+        case 2022:
+          emoji = YearsSign.Tiger;
           break;
         default:
           emoji = null;
@@ -235,8 +250,8 @@ export default Vue.extend({
 
   &-value {
     color: $color-foreground-dark;
-    letter-spacing: -.25rem;
     font-size: $font-size-xl;
+    letter-spacing: -.25rem;
     text-align: center;
     text-transform: uppercase;
   }

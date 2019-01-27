@@ -1,6 +1,6 @@
 import { Inject } from '~/core';
 import { ISolEmojisService } from './soliemojis.service';
-import BadgeInfo from '~/demo/badge-info.model';
+import { BadgeInfo } from '~/demo/badges/badge-info.model';
 
 class SolBadgesService {
     @Inject() solEmojisService: ISolEmojisService;
