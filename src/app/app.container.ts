@@ -1,7 +1,6 @@
 import { Container } from 'inversify';
 import * as s from '~/shared';
 import { demoModule } from '~/demo';
-import { solutionsModule } from '~/solutions';
 import { injectId } from '~/core';
 
 // How to inject a dependency
@@ -17,7 +16,6 @@ export function containerBuilder(): Container {
 
     // Bind services for each module
     demoModule.container(container);
-    solutionsModule.container(container);
 
     return container;
 }
