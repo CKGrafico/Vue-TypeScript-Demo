@@ -1,17 +1,17 @@
 <template>
   <section class="demo">
-    <Author :author="author" />
+    <Pet :author="author" />
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Author from './Author.vue';
+import Pet from './Pet.vue';
 
 @Component({
   components: {
-    Author
+    Pet
   }
 })
 export default class extends Vue {

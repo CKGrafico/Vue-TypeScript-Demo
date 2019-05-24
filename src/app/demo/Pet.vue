@@ -33,24 +33,14 @@
           </div>
         </div>
       </section>
-
-      <section class="author-badges">
-        <Badge v-for="(badge, index) in badges" :key="index" :info="badge" />
-      </section>
     </div>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { Badge, BadgeInfo } from './badges';
-import { emojisService } from './emojis';
-import { YearsSign } from './years';
 
 export default Vue.extend({
-  components: {
-    Badge
-  },
   props: {
     author: {
       type: Object,
@@ -59,79 +49,7 @@ export default Vue.extend({
   },
   data: () => ({
     badges: []
-  }),
-  mounted() {
-    this.generateBadges();
-  },
-  methods: {
-    generateBadges(): void {
-      this.badges = [
-        this.generateYearBadge(this.author.registerYear),
-        this.generateNameBadge(this.author.name),
-        this.generateFollowersBadge(this.author.followers)
-      ].filter(x => x);
-    },
-    generateYearBadge(year: number): BadgeInfo {
-      let emoji: string = null;
-
-      switch (year) {
-        case 2016:
-          emoji = YearsSign.Monkey;
-          break;
-        case 2017:
-          emoji = YearsSign.Rooster;
-          break;
-        case 2018:
-          emoji = YearsSign.Dog;
-          break;
-        case 2019:
-          emoji = YearsSign.Pig;
-          break;
-        case 2020:
-          emoji = YearsSign.Rat;
-          break;
-        case 2021:
-          emoji = YearsSign.Ox;
-          break;
-        case 2022:
-          emoji = YearsSign.Tiger;
-          break;
-        default:
-          emoji = null;
-      }
-
-      if (!emoji) {
-        return;
-      }
-
-      return {
-        value: emojisService.get(emoji),
-        title: `Registered in the year of ${emoji}.`,
-        color: '#C05775'
-      };
-    },
-    generateNameBadge(name: string): BadgeInfo {
-      const letter = name.slice(0, 1);
-
-      return {
-        value: letter, 
-        color: '#F68381',
-        title: `Welcome to ${letter}'s club.`,
-        isNotIcon: true
-      };
-    },
-    generateFollowersBadge(followers: number): BadgeInfo {
-      if (followers < 1) {
-        return;
-      }
-
-      return {
-        value: '😲', 
-        color: '#355C7D',
-        title: 'There are people following you!'
-      };
-    }
-  }
+  })
 });
 </script>
 
