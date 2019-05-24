@@ -6,9 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { PetInfo } from './pet-info.model';
-
-import Pet from './Pet.vue';
+import { Pet, PetInfo } from '~/demo/pet';
 
 @Component({
   components: {

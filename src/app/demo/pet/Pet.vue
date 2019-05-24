@@ -18,6 +18,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { PetInfo } from './pet-info.model';
+import { Inject } from 'inversify-props';
 
 @Component
 export default class extends Vue {

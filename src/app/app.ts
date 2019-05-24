@@ -2,12 +2,12 @@ import { Vue } from 'vue-property-decorator';
 
 import { vendor } from './vendor';
 import { router } from './app.router';
-// import { containerBuilder } from './app.container';
+import { containerBuilder } from './app.container';
 import App from './App.vue';
 
 export class AppModule {
     constructor() {
-        // containerBuilder();
+        containerBuilder();
 
         vendor.forEach(library => Vue.use(library));
 
