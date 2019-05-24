@@ -1,11 +1,12 @@
 <template>
   <section class="demo">
-    <Pet :author="author" />
+    <Pet :pet="pet" />
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { PetInfo } from './pet-info.model';
 
 import Pet from './Pet.vue';
 
@@ -16,18 +17,10 @@ import Pet from './Pet.vue';
 })
 export default class extends Vue {
   public name = 'Demo';
-  public author = {
-    roles: ['premium'],
-    name: 'Quique',
+  public pet: PetInfo = {
+    name: 'Maya',
     location: 'Barcelona, Spain',
-    company: 'Plain Concepts',
-    registerYear: 2017,
-    followers: 1,
-    info: {
-      articles: 10,
-      likes: 12,
-      comments: 17
-    }
+    food: 5
   };
 }
 </script>

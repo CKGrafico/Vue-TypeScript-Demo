@@ -1,69 +1,50 @@
 <template>
-  <section class="author">
-    <header class="author-header" 
-      :class="{'is-premium': author.roles.find(x => x === 'premium')}"></header>
-    <div class="author-content">
-      <div class="author-picture"></div>
-      <h1 class="author-name">{{author.name}}</h1>
-      <h2 class="author-location">{{author.location}}</h2>
+  <section class="pet">
+    <header class="pet-header"></header>
+    <div class="pet-content">
+      <div class="pet-picture"></div>
+      <h1 class="pet-name">{{pet.name}} <span class="pet-food">🍗{{food}}</span></h1>
+      <h2 class="pet-location">{{pet.location}}</h2>
 
-      <section class="author-info" v-if="author.info">
-        <div class="author-column">
-          <div class="author-category">
-          Articles
-          </div>
-          <div class="author-value">
-            {{author.info.articles}}
-          </div>
-        </div>
-        <div class="author-column">
-          <div class="author-category">
-          Likes
-          </div>
-          <div class="author-value">
-            {{author.info.likes}}
-          </div>
-        </div>
-        <div class="author-column">
-          <div class="author-category">
-          Comments
-          </div>
-          <div class="author-value">
-            {{author.info.comments}}
-          </div>
-        </div>
+      <section class="pet-info">
+        <button class="btn btn-secondary" @click="addFood">Feed me</button>
       </section>
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { Component, Vue, Prop } from 'vue-property-decorator';
+import { PetInfo } from './pet-info.model';
 
-export default Vue.extend({
-  props: {
-    author: {
-      type: Object,
-      required: true
-    }
-  },
-  data: () => ({
-    badges: []
-  })
-});
+@Component
+export default class extends Vue {
+  public name = 'Pet';
+  public food = 0;
+
+  @Prop({ required: true }) pet: PetInfo;
+
+  created() {
+    this.food = this.pet.food || this.food;
+  }
+
+  public addFood(): void {
+    this.food++;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 @import '~styles/variables';
 
-.author {
+.pet {
   $card-background: $color-background-bright;
-  $border-radius: 3px;
+  $border-radius: 16px;
 
   background-color: $card-background;
   border-radius: $border-radius;
-  max-width: 25rem;
-  min-height: 28rem;
+  max-width: 23rem;
+  min-height: 25rem;
   position: relative;
   width: 80%;
 
@@ -92,22 +73,6 @@ export default Vue.extend({
       position: absolute;
       width: 100%;
       z-index: 2;
-    }
-
-    &.is-premium:after {
-      $position: .3rem;
-      $size: 1.5rem;
-
-      background-image: url('/assets/images/premium.svg');
-      background-size: cover;
-      content: '';
-      height: $size;
-      padding: .15rem .25rem;
-      position: absolute;
-      right: $position;
-      top: $position;
-      width: $size;
-      z-index: 3;
     }
   }
 
@@ -155,30 +120,13 @@ export default Vue.extend({
   &-info {
     display: flex;
     justify-content: space-around;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
   }
 
-  &-category {
-    color: $color-foreground-bright;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-light;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  &-value {
-    color: $color-foreground-dark;
-    font-size: $font-size-xl;
-    letter-spacing: -.25rem;
-    text-align: center;
-    text-transform: uppercase;
-  }
-
-  &-badges {
-    bottom: 0;
-    display: flex;
-    margin: 1rem;
-    position: absolute;
+  &-food {
+    font-size: $font-size-s;
+    margin-left: .25rem;
+    opacity: .8;
   }
 }
 </style>
