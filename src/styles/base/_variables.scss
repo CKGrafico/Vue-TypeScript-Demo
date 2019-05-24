@@ -3,14 +3,13 @@ $color-primary: #F0AF37;
 $color-primary-dark: darken($color-primary, 10%);
 $color-primary-darker: darken($color-primary, 20%);
 $color-primary-bright: lighten($color-primary, 10%);
-$color-primary-brighter: lighten($color-primary, 20%);
+$color-primary-brighter: #F4EEE4;
 
 $color-secondary: #8119BD;
 $color-secondary-dark: darken($color-secondary, 10%);
 $color-secondary-darker: darken($color-secondary, 20%);
 $color-secondary-bright: lighten($color-secondary, 10%);
-$color-secondary-brighter: #FFDD2E;
-$color-secondary-brightest: lighten($color-secondary, 38%);
+$color-secondary-brighter: lighten($color-secondary, 38%);
 
 $color-background-dark: #111111;
 $color-background-darker: #000000;
@@ -22,7 +21,7 @@ $color-foreground-darker: #000000;
 $color-foreground-bright: #6D6D6D;
 $color-foreground-brighter: #FFFFFF;
 
-$color-premium: #AF9B61;
+$color-danger: #E92C1A;
 
 // Animations
 $animation-speed-fast: .15s;

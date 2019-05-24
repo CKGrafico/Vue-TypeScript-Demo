@@ -1,9 +1,11 @@
 <template>
   <section class="pet">
-    <header class="pet-header"></header>
+    <header class="pet-header">
+      <span class="pet-food" :class="checkTooMuchFood">{{food}}</span>
+    </header>
     <div class="pet-content">
       <div class="pet-picture"></div>
-      <h1 class="pet-name">{{pet.name}} <span class="pet-food">🍗{{food}}</span></h1>
+      <h1 class="pet-name">{{pet.name}}</h1>
       <h2 class="pet-location">{{pet.location}}</h2>
 
       <section class="pet-info">
@@ -21,6 +23,7 @@ import { PetInfo } from './pet-info.model';
 export default class extends Vue {
   public name = 'Pet';
   public food = 0;
+  private MAX_FOOD = 15;
 
   @Prop({ required: true }) pet: PetInfo;
 
@@ -30,6 +33,14 @@ export default class extends Vue {
 
   public addFood(): void {
     this.food++;
+  }
+
+  get checkTooMuchFood(): string {
+    if (this.food < this.MAX_FOOD) {
+      return '';
+    }
+
+    return 'is-enough';
   }
 }
 </script>
@@ -124,9 +135,44 @@ export default class extends Vue {
   }
 
   &-food {
+    $distance: 1rem;
+    $size: 2rem;
+
+    align-items: center;
+    background-color: $color-primary-brighter;
+    border-radius: 50%;
+    color: $color-secondary-bright;
+    display: flex;
     font-size: $font-size-s;
+    height: $size;
+    justify-content: center;
     margin-left: .25rem;
-    opacity: .8;
+    position: absolute;
+    right: $distance;
+    top: $distance;
+    width: $size;
+    z-index: 100;
+
+    &:after {
+      $size: 1.5rem;
+
+      align-items: center;
+      background-color: $color-primary-brighter;
+      border-radius: 50%;
+      content: '🍗';
+      display: flex;
+      height: $size;
+      justify-content: center;
+      left: -.75rem;
+      position: absolute;
+      top: .15rem;
+      width: $size;
+      z-index: -1;
+    }
+
+    &.is-enough {
+      color: $color-danger;
+    }
   }
 }
 </style>
