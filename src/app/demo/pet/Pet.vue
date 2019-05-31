@@ -38,7 +38,7 @@ export default class extends Vue {
 
   get checkTooMuchFood(): string {
     if (this.food < this.MAX_FOOD) {
-      return '';
+      return;
     }
 
     return 'is-enough';
