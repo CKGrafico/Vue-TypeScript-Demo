@@ -173,6 +173,11 @@ export default class extends Vue {
 
     &.is-enough {
       color: $color-danger;
+      font-weight: $font-weight-bold;
+
+      &:after {
+        content: '🥵';
+      }
     }
   }
 }
